@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
-@Builder
-@Table(name = "empresa")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "empresa")
 public class Empresa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +24,7 @@ public class Empresa implements Serializable {
     @Column(name = "cnpj", unique = true)
     private String cnpj;
 
-    @Column(name = "nomeFantasia")
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
     @Column(name = "cep")

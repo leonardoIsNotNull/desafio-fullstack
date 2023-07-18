@@ -29,7 +29,7 @@ public class PessoaFisica implements Serializable {
     @Column(name = "rg")
     private String rg;
 
-    @Column(name = "dataNascimento")
+    @Column(name = "data_nascimento")
     private SimpleDateFormat dataNascimento;
 
     @OneToOne(fetch = FetchType.LAZY)
