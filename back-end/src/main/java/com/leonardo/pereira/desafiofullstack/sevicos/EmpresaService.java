@@ -5,12 +5,13 @@ import com.leonardo.pereira.desafiofullstack.repositorios.EmpresaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class EmpresaService {
+public class EmpresaService implements Serializable {
 
     private final EmpresaRepository empresaRepository;
 

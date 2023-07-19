@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.leonardo.pereira</groupId>
 	<artifactId>desafio-fullstack</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>desafio-fullstack</name>
 	<description>desafio-fullstack</description>
 	<properties>
