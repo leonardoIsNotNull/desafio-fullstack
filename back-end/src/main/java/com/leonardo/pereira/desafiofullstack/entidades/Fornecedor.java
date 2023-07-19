@@ -1,4 +1,4 @@
-package com.leonardo.pereira.desafiofullstack.models;
+package com.leonardo.pereira.desafiofullstack.entidades;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,7 +23,8 @@ public class Fornecedor implements Serializable{
     @Column(name = "cnpj",  nullable = true, unique = true)
     private String cnpj;
 
-    @OneToOne(mappedBy = "fornecedor", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "id_pessoa_fisica", referencedColumnName = "id")
     private PessoaFisica pessoaFisica;
 
     //... Mapeamento bidimensional ManytoMany ...

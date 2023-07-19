@@ -1,15 +1,16 @@
-package com.leonardo.pereira.desafiofullstack.models;
+package com.leonardo.pereira.desafiofullstack.entidades;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Getter
 @Setter
 @Entity
+@Table(name = "pessoa_fisica")
 public class PessoaFisica implements Serializable {
 
     @Id
@@ -30,9 +31,8 @@ public class PessoaFisica implements Serializable {
     private String rg;
 
     @Column(name = "data_nascimento")
-    private SimpleDateFormat dataNascimento;
+    private Date dataNascimento;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fornecedor_id")
+    @OneToOne(mappedBy = "pessoaFisica")
     private Fornecedor fornecedor;
 }

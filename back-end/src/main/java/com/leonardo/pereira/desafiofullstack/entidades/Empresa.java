@@ -1,12 +1,9 @@
-package com.leonardo.pereira.desafiofullstack.models;
+package com.leonardo.pereira.desafiofullstack.entidades;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
