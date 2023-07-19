@@ -1,0 +1,21 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/desafiofullstack
+        username: leonardo
+        password: semsenha
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+                default_schema: "desafiofullstack"
+        show-sql: true
+        database: postgresql
+logging:
+    level:
+        root: info

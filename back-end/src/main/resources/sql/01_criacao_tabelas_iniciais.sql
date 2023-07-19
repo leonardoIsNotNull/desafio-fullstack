@@ -1,5 +1,7 @@
+create schema desafiofullstack
+
 -- criando tabela empresa
-create table Empresa
+create table empresa
 (
     id            int primary key unique,
     nome_fantasia varchar(100)       not null,
@@ -9,7 +11,7 @@ create table Empresa
 );
 
 -- criando tabela pessoa fisica
-create table PessoaFisica
+create table pessoa_fisica
 (
     id              int primary key unique,
     cep             char(8)      not null,
@@ -17,15 +19,14 @@ create table PessoaFisica
     nome            varchar(100) not null,
     cpf             char(11) unique,
     rg              char(7),
-    data_nascimento date,
-    id_fornecedor   int          not null
+    data_nascimento date
 );
 
 -- criando tabela fornecedor
-create table Fornecedor
+create table fornecedor
 (
     id              int primary key unique,
     cnpj            varchar(14) null unique,
     id_empresa      int         not null,
-    id_pesso_fisica int         not null
+    id_pesso_fisica int
 )
