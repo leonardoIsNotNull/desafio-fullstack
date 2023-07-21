@@ -14,30 +14,28 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/empresa")
 public class EmpresaController {
 
     private final EmpresaService empresaService;
-    private final Logger logger = LoggerFactory.getLogger(EmpresaController.class);
 
-    @GetMapping("/empresa")
-    public ResponseEntity<List<Empresa>> buscarTodasEmpresas() {
+    @GetMapping()
+    public ResponseEntity<List<Empresa>> buscarTodos() {
         try {
             return ResponseEntity.ok(empresaService.obterTodasEmpresas());
         } catch (Exception e) {
-            logger.error("Erro de requisição: {}", e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping("/empresa/{id}")
-    public ResponseEntity<Empresa> buscarEmpresaPorId(@PathVariable("id") Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Empresa> buscarPorId(@PathVariable("id") Long id) {
         Optional<Empresa> empresa = empresaService.obterPorId(id);
         return empresa.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/empresa")
-    public ResponseEntity<Empresa> criarEmpresa(@RequestBody Empresa empresa) {
+    @PostMapping()
+    public ResponseEntity<Empresa> criar(@RequestBody Empresa empresa) {
         try {
             return ResponseEntity.ok(empresaService.criarAtualizarEmpresa(empresa).orElseThrow());
         } catch (Exception e) {
@@ -45,13 +43,13 @@ public class EmpresaController {
         }
     }
 
-    @PutMapping("/empresa")
-    public ResponseEntity<Empresa> atualizarEmpresa(@RequestBody Empresa empresaOriginal) {
+    @PutMapping()
+    public ResponseEntity<Empresa> atualizar(@RequestBody Empresa empresaOriginal) {
         return ResponseEntity.ok(empresaService.criarAtualizarEmpresa(empresaOriginal).orElseThrow());
     }
 
-    @DeleteMapping("/emrpesa/{id}")
-    public void deletarEmpresa(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable("id") Long id) {
         empresaService.deletarEmpresa(id);
     }
 

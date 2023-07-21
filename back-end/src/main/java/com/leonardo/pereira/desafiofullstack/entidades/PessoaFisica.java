@@ -1,5 +1,6 @@
 package com.leonardo.pereira.desafiofullstack.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,15 +18,6 @@ public class PessoaFisica implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cep")
-    private String cep;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "nome")
-    private String nome;
-
     @Column(name = "cpf", nullable = true, unique = true)
     private String cpf;
 
@@ -35,6 +27,7 @@ public class PessoaFisica implements Serializable {
     @Column(name = "data_nascimento")
     private Date dataNascimento;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "pessoaFisica")
     private Fornecedor fornecedor;
 }

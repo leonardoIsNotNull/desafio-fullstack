@@ -23,7 +23,16 @@ public class Fornecedor implements Serializable{
     @Column(name = "cnpj",  nullable = true, unique = true)
     private String cnpj;
 
-    @OneToOne
+    @Column(name = "cep")
+    private String cep;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "nome")
+    private String nome;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pessoa_fisica", referencedColumnName = "id")
     private PessoaFisica pessoaFisica;
 

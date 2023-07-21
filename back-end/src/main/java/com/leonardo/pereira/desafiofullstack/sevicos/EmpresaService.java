@@ -3,6 +3,7 @@ package com.leonardo.pereira.desafiofullstack.sevicos;
 import com.leonardo.pereira.desafiofullstack.entidades.Empresa;
 import com.leonardo.pereira.desafiofullstack.repositorios.EmpresaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @Service
 public class EmpresaService implements Serializable {
 
+    @Autowired
     private final EmpresaRepository empresaRepository;
 
     public List<Empresa> obterTodasEmpresas(){
