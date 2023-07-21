@@ -31,7 +31,7 @@ public class EmpresaController {
     @GetMapping("/{id}")
     public ResponseEntity<Empresa> buscarPorId(@PathVariable("id") Long id) {
         Optional<Empresa> empresa = empresaService.obterPorId(id);
-        return empresa.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(empresa.get());
     }
 
     @PostMapping()

@@ -17,7 +17,7 @@ import java.util.Objects;
 public class Fornecedor implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "cnpj",  nullable = true, unique = true)
