@@ -20,7 +20,11 @@ export class EmpresaService {
   }
 
   obterPorId(id): Observable<any>{
-    return this.http.get<any>(AppConstants.baseEmpresa + "/" + id);
+    return this.http.get<any>(`${AppConstants.baseEmpresa}/${id}`);
+  }
+
+  deletar(id): Observable<any>{
+    return this.http.delete(`${AppConstants.baseEmpresa}/${id}`);
   }
 
 }

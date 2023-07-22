@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-primary" [routerLink]="['fornecedor-cadastro']" style="margin-top: 10px">Novo Fornecedor</button>
+<table class="table" style="margin-top: 10px">
+  <thead class="thead-dark">
+  <tr>
+    <th *ngFor="let c of cabecalho" scope="col">{{c}}</th>
+    <th scope="col">Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let fornecedor of fornecedores">
+    <td>{{ fornecedor.nome }}</td>
+    <td>{{ fornecedor.cnpj }}</td>
+    <td>{{ fornecedor.cep }}</td>
+    <td>
+      <button type="button" class="btn btn-outline-dark" (click)="editar(fornecedor.id)">Editar</button>
+      <button type="button" class="btn btn-outline-danger" (click)="deletar(fornecedor.id)" style="margin-left: 5px">Excluir</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

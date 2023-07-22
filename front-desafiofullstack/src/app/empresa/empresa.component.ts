@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Empresa} from "./empresa.model";
 import {EmpresaService} from "../servicos/empresa.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'dff-empresa',
@@ -8,7 +9,7 @@ import {EmpresaService} from "../servicos/empresa.service";
 })
 export class EmpresaComponent implements OnInit {
 
-  constructor(private empresaService: EmpresaService) { }
+  constructor(private empresaService: EmpresaService, private router: Router) { }
 
   empresas: Array<Empresa>;
 
@@ -17,8 +18,18 @@ export class EmpresaComponent implements OnInit {
   ngOnInit() {
     this.empresaService.getEmpresas().subscribe(retorno => {
       this.empresas = retorno;
-      alert("Passou")
     });
+  }
+
+  editar(id) {
+    this.router.navigate(['empresa/empresa-cadastro', id]);
+  }
+
+  deletar(id) {
+    this.empresaService.deletar(id).subscribe(retorno =>{
+      alert(`Empresa de id ${id} excluída com sucesso.`);
+      window.location.reload();
+    })
   }
 
 }

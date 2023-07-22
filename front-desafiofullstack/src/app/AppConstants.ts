@@ -8,11 +8,8 @@ export class AppConstants {
     return this.baseServidor + 'empresa';
   }
 
-  public static get baseUrl(): string {
-    return this.baseServidor + 'cursospringrestapi/usuario/';
+  public static get baseFornecedor(): string {
+    return this.baseServidor + 'fornecedor';
   }
 
-  public static get baseUrlPath(): string {
-    return this.baseServidor + 'cursospringrestapi/';
-  }
 }

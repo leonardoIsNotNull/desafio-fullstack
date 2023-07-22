@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" [routerLink]="['empresa-cadastro']">Nova Empresa</button>
+<button type="button" class="btn btn-primary" [routerLink]="['empresa-cadastro']" style="margin-top: 10px">Nova Empresa</button>
 <table class="table" style="margin-top: 10px">
   <thead class="thead-dark">
   <tr>
@@ -12,8 +12,8 @@
     <td>{{ empresa.cnpj }}</td>
     <td>{{ empresa.cep }}</td>
     <td>
-      <button type="button" class="btn btn-outline-dark" [routerLink]="['empresa-cadastro', empresa.id]">Editar</button>
-      <button type="button" class="btn btn-outline-danger" style="margin-left: 5px">Excluir</button>
+      <button type="button" class="btn btn-outline-dark" (click)="editar(empresa.id)">Editar</button>
+      <button type="button" class="btn btn-outline-danger" (click)="deletar(empresa.id)" style="margin-left: 5px">Excluir</button>
     </td>
   </tr>
   </tbody>

@@ -27,10 +27,8 @@ export class EmpresaCadastroComponent implements OnInit {
 
   ngOnInit() {
     const id = this.routeActive.snapshot.paramMap.get('id');
-    console.log("Passou no init" + id);
     if (id != null){
       this.empresaService.obterPorId(id).subscribe(retorno => {
-        console.log("Passou dentro do subscribe" + id);
         this.empresa = retorno;
       });
     }

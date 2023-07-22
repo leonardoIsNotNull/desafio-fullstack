@@ -1,0 +1,27 @@
+<form style="margin: 10px">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="nomeFantasia">Nome</label>
+      <input [(ngModel)]="fornecedor.nome" type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="cnpj">CNPJ</label>
+      <input [(ngModel)]="fornecedor.cnpj" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="cnpj">CEP</label>
+      <input [(ngModel)]="fornecedor.cep" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="fornededores">Empresas</label>
+      <select id="fornededores" class="form-control">
+        <option selected>Escolha...</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  <button type="button" class="btn btn-danger" [routerLink]="['/fornecedor']" style="margin-left: 5px">Cancelar</button>
+
+</form>
