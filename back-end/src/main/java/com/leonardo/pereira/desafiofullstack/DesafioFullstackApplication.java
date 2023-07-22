@@ -10,15 +10,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class DesafioFullstackApplication implements WebMvcConfigurer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DesafioFullstackApplication.class, args);
-	}
-
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-
-		registry.addMapping("/empresa/**")
-				.allowedMethods("*")
-				.allowedOrigins("*");
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DesafioFullstackApplication.class, args);
+    }
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:4200/")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
+    }
 }
