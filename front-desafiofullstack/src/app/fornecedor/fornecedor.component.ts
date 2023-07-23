@@ -11,7 +11,7 @@ export class FornecedorComponent implements OnInit {
 
   fornecedores: Array<Fornecedor>;
 
-  cabecalho: Array<String> = ['Nome', 'CNPJ', 'CEP'];
+  cabecalho: Array<String> = ['Nome', 'Tipo', 'CNPJ', 'CPF', 'E-mail', 'CEP', 'AÇÕES'];
 
   constructor(private fornecedorService: FornecedorService, private router: Router) { }
 

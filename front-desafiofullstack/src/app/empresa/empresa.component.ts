@@ -16,7 +16,7 @@ export class EmpresaComponent implements OnInit {
   cabecalho: Array<String> = ['Nome Fantasia', 'CNPJ', 'CEP'];
 
   ngOnInit() {
-    this.empresaService.getEmpresas().subscribe(retorno => {
+    this.empresaService.obterEmpresas().subscribe(retorno => {
       this.empresas = retorno;
     });
   }

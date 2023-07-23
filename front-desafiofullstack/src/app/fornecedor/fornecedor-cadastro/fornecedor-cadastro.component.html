@@ -1,27 +1,85 @@
 <form style="margin: 10px">
+  <div class="form-group" >
+    <label class="control-label col-md-2" *ngFor="let radio of radios">
+      <input type="radio" [(ngModel)]="model" [name]="radio.name" [value]="radio.value" required>
+      {{ radio.label }}
+    </label>
+  </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="nomeFantasia">Nome</label>
-      <input [(ngModel)]="fornecedor.nome" type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" placeholder="Nome">
+    <div class="col-4">
+      <label for="nome">Nome</label>
+      <input [(ngModel)]="fornecedor.nome" type="text" class="form-control" id="nome" name="nome"
+             placeholder="Nome">
     </div>
-    <div class="form-group col-md-6">
+    <div class="col-4" [hidden]="!model">
       <label for="cnpj">CNPJ</label>
       <input [(ngModel)]="fornecedor.cnpj" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
     </div>
-    <div class="form-group col-md-6">
-      <label for="cnpj">CEP</label>
+    <div class="col-4" [hidden]="model">
+      <label for="cpf">CPF</label>
+      <input [(ngModel)]="fornecedor.cpf" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+    </div>
+    <div class="col-4">
+      <label for="cep">CEP</label>
       <input [(ngModel)]="fornecedor.cep" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
     </div>
-    <div class="form-group col-md-6">
-      <label for="fornededores">Empresas</label>
-      <select id="fornededores" class="form-control">
-        <option selected>Escolha...</option>
-        <option>...</option>
-      </select>
+    <div class="col-4" [ngClass]="{'col-8':model}">
+      <label for="cep">E-mail</label>
+      <input [(ngModel)]="fornecedor.email" type="text" class="form-control" id="email" name="email" placeholder="E-mail">
+    </div>
+    <div class="col-4" [hidden]="model">
+      <label for="rg">RG</label>
+      <input [(ngModel)]="fornecedor.rg" type="text" class="form-control" id="rg" name="rg" placeholder="RG">
+    </div>
+    <div class="col-4" [hidden]="model">
+      <label for="cnpj">Data Nascimento</label>
+      <input [(ngModel)]="fornecedor.dataNascimento" type="date" class="form-control" id="dataNasc" name="dataNasc" placeholder="Data Nascimento">
+    </div>
+    <div class="col-6">
+      <label class="mt-2">Empresas</label>
+      <table class="table border" style="margin-top: 10px">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nome Fantasia</th>
+          <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let empresa of empresas">
+          <td class="border">{{ empresa.nomeFantasia }}</td>
+          <td class="btn-group-sm btn-group border w-100">
+            <button class="btn btn-success" (click)="adicionarEmpresa(empresa)"
+                    [disabled]="desabilitarSelecionar(empresa.id)">Selecionar
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <label class="mt-2">Empresas Selecionadas</label>
+      <table class="table border" style="margin-top: 10px">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nome Fantasia</th>
+          <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let empresa of fornecedor.empresas">
+          <td class="border">{{ empresa.nomeFantasia }}</td>
+          <td class="btn-group-sm btn-group border w-100">
+            <span class="btn btn-danger" (click)="(removerFornecedor(empresa))">Remover</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
-  <button type="button" class="btn btn-danger" [routerLink]="['/fornecedor']" style="margin-left: 5px">Cancelar</button>
+  <div class="mt-2">
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+    <button type="button" class="btn btn-danger" [routerLink]="['/fornecedor']" style="margin-left: 5px">Cancelar</button>
+  </div>
 
 </form>

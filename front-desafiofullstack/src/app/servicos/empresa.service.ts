@@ -12,7 +12,7 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
-  getEmpresas(): Observable<any> {
+  obterEmpresas(): Observable<any> {
     return this.http.get<any>(AppConstants.baseEmpresa);
   }
 

@@ -7,14 +7,12 @@ import {FornecedorService} from "../../servicos/fornecedor.service";
 
 @Component({
   selector: 'dff-empresa-cadastro',
-  templateUrl: './empresa-cadastro.component.html',
-  styleUrls:['./empresa-cadastro.component.css']
+  templateUrl: './empresa-cadastro.component.html'
 })
 export class EmpresaCadastroComponent implements OnInit {
 
   empresa: Empresa = new Empresa();
   fornecedores: Fornecedor[] = [];
-  selecionarDesabilidato: boolean = false;
 
   constructor(private empresaService: EmpresaService,
               private router: Router,
