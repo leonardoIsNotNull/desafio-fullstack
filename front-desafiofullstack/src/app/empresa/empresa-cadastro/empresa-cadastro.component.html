@@ -1,27 +1,64 @@
 <form style="margin: 10px">
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="col-4">
       <label for="nomeFantasia">Nome Fantasia</label>
-      <input [(ngModel)]="empresa.nomeFantasia" type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" placeholder="Nome Fantasia">
+      <input [(ngModel)]="empresa.nomeFantasia" type="text" class="form-control" id="nomeFantasia" name="nomeFantasia"
+             placeholder="Nome Fantasia">
     </div>
-    <div class="form-group col-md-6">
+    <div class="col-4">
       <label for="cnpj">CNPJ</label>
       <input [(ngModel)]="empresa.cnpj" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
     </div>
-    <div class="form-group col-md-6">
+    <div>
       <label for="cnpj">CEP</label>
       <input [(ngModel)]="empresa.cep" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
     </div>
-    <div class="form-group col-md-6">
-      <label for="fornededores">Fornededores</label>
-      <select id="fornededores" class="form-control">
-        <option selected>Escolha...</option>
-        <option>...</option>
-      </select>
+    <div class="col-6">
+      <label class="mt-2">Fornecedores</label>
+      <table class="table border" style="margin-top: 10px">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fornecedor of fornecedores">
+          <td class="border">{{ fornecedor.nome }}</td>
+          <td class="btn-group-sm btn-group border w-100">
+            <button class="btn btn-success" (click)="adicionarFornecedor(fornecedor)"
+                    [disabled]="desabilitarSelecionar(fornecedor.id)">Selecionar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <label class="mt-2">Fornecedores Selecionados</label>
+      <table class="table border" style="margin-top: 10px">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fornecedor of empresa.fornecedores">
+          <td class="border">{{ fornecedor.nome }}</td>
+          <td class="border">{{ fornecedor.cnpj ? 'Pessoa Jurídica' : 'Pessoa Física'}}</td>
+          <td class="btn-group-sm btn-group border w-100">
+            <span class="btn btn-danger" (click)="removerFornecedor(fornecedor)">Remover</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
-  <button type="button" class="btn btn-danger" [routerLink]="['/empresa']" style="margin-left: 5px">Cancelar</button>
+  <div class="mt-2">
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+    <button type="button" class="btn btn-danger" [routerLink]="['/empresa']" style="margin-left: 5px">Cancelar</button>
+  </div>
 
 </form>

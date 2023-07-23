@@ -16,7 +16,7 @@ export class FornecedorComponent implements OnInit {
   constructor(private fornecedorService: FornecedorService, private router: Router) { }
 
   ngOnInit() {
-    this.fornecedorService.getFornecedores().subscribe(retorno => {
+    this.fornecedorService.obterFornecedores().subscribe(retorno => {
       this.fornecedores = retorno;
     });
   }

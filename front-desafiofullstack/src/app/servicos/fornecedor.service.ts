@@ -11,7 +11,7 @@ export class FornecedorService {
 
   constructor(private http: HttpClient) { }
 
-  getFornecedores(): Observable<any> {
+  obterFornecedores(): Observable<any> {
     return this.http.get<any>(AppConstants.baseFornecedor);
   }
 
