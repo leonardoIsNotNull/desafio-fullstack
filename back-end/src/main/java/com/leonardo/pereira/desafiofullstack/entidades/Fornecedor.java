@@ -1,5 +1,6 @@
 package com.leonardo.pereira.desafiofullstack.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,6 +39,7 @@ public class Fornecedor implements Serializable{
 
     //... Mapeamento bidimensional ManytoMany ...
     @ManyToMany(mappedBy = "fornecedores")
+    @JsonIgnoreProperties("fornecedores")
     private List<Empresa> empresas = new ArrayList<>();
 
     @Override

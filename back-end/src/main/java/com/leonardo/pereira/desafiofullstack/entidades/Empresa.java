@@ -1,5 +1,6 @@
 package com.leonardo.pereira.desafiofullstack.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,6 +35,7 @@ public class Empresa implements Serializable {
             joinColumns = @JoinColumn(name = "empresa_id"),
             inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
     )
+    @JsonIgnoreProperties("empresas")
     private List<Fornecedor> fornecedores;
 
     @Override
