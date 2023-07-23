@@ -44,13 +44,7 @@ public class Fornecedor implements Serializable{
     private Date dataNascimento;
 
     //... Mapeamento bidimensional ManytoMany ...
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "empresa_fornecedor",
-            joinColumns = @JoinColumn(name = "empresa_id"),
-            inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
-    )
-    @JsonIgnoreProperties("fornecedores")
+    @ManyToMany(mappedBy = "fornecedores", cascade = CascadeType.ALL)
     private List<Empresa> empresas = new ArrayList<>();
 
     @Override

@@ -35,46 +35,6 @@
       <label for="cnpj">Data Nascimento</label>
       <input [(ngModel)]="fornecedor.dataNascimento" type="date" class="form-control" id="dataNasc" name="dataNasc" placeholder="Data Nascimento">
     </div>
-    <div class="col-6">
-      <label class="mt-2">Empresas</label>
-      <table class="table border" style="margin-top: 10px">
-        <thead class="thead-dark">
-        <tr>
-          <th scope="col">Nome Fantasia</th>
-          <th scope="col">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let empresa of empresas">
-          <td class="border">{{ empresa.nomeFantasia }}</td>
-          <td class="btn-group-sm btn-group border w-100">
-            <button class="btn btn-success" (click)="adicionarEmpresa(empresa)"
-                    [disabled]="desabilitarSelecionar(empresa.id)">Selecionar
-            </button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-6">
-      <label class="mt-2">Empresas Selecionadas</label>
-      <table class="table border" style="margin-top: 10px">
-        <thead class="thead-dark">
-        <tr>
-          <th scope="col">Nome Fantasia</th>
-          <th scope="col">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let empresa of fornecedor.empresas">
-          <td class="border">{{ empresa.nomeFantasia }}</td>
-          <td class="btn-group-sm btn-group border w-100">
-            <span class="btn btn-danger" (click)="(removerFornecedor(empresa))">Remover</span>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 
   <div class="mt-2">

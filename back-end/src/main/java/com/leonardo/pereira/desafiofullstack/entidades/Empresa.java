@@ -30,7 +30,12 @@ public class Empresa implements Serializable {
     private String cep;
 
     //... Mapeamento ManytoMany ...
-    @ManyToMany(mappedBy = "empresas", cascade = CascadeType.MERGE)
+    @ManyToMany
+    @JoinTable(
+            name = "empresa_fornecedor",
+            joinColumns = @JoinColumn(name = "empresa_id"),
+            inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
+    )
     @JsonIgnoreProperties("empresas")
     private List<Fornecedor> fornecedores = new ArrayList<>();
 
