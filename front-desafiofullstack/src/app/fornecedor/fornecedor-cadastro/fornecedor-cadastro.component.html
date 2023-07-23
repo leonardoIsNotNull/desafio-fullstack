@@ -13,15 +13,15 @@
     </div>
     <div class="col-4" [hidden]="!model">
       <label for="cnpj">CNPJ</label>
-      <input [(ngModel)]="fornecedor.cnpj" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
+      <input [(ngModel)]="fornecedor.cnpj" maxlength="14" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
     </div>
     <div class="col-4" [hidden]="model">
       <label for="cpf">CPF</label>
-      <input [(ngModel)]="fornecedor.cpf" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+      <input [(ngModel)]="fornecedor.cpf" maxlength="11" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
     </div>
     <div class="col-4">
       <label for="cep">CEP</label>
-      <input [(ngModel)]="fornecedor.cep" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+      <input [(ngModel)]="fornecedor.cep" maxlength="8" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
     </div>
     <div class="col-4" [ngClass]="{'col-8':model}">
       <label for="cep">E-mail</label>
@@ -29,7 +29,7 @@
     </div>
     <div class="col-4" [hidden]="model">
       <label for="rg">RG</label>
-      <input [(ngModel)]="fornecedor.rg" type="text" class="form-control" id="rg" name="rg" placeholder="RG">
+      <input [(ngModel)]="fornecedor.rg" maxlength="12" type="text" class="form-control" id="rg" name="rg" placeholder="RG">
     </div>
     <div class="col-4" [hidden]="model">
       <label for="cnpj">Data Nascimento</label>

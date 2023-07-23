@@ -38,6 +38,9 @@ export class FornecedorCadastroComponent implements OnInit {
     if (id != null){
       this.fornecedorService.obterPorId(id).subscribe(retorno => {
         this.fornecedor = retorno;
+        if(this.fornecedor.cnpj != null){
+          this.model = true;
+        }
       });
     }
 

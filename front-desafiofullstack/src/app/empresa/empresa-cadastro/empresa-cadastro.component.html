@@ -7,11 +7,11 @@
     </div>
     <div class="col-4">
       <label for="cnpj">CNPJ</label>
-      <input [(ngModel)]="empresa.cnpj" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
+      <input [(ngModel)]="empresa.cnpj" maxlength="14" type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
     </div>
     <div>
-      <label for="cnpj">CEP</label>
-      <input [(ngModel)]="empresa.cep" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+      <label for="cep">CEP</label>
+      <input [(ngModel)]="empresa.cep" maxlength="8" type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
     </div>
     <div class="col-6">
       <label class="mt-2">Fornecedores</label>
