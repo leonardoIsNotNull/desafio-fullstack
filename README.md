@@ -3,13 +3,13 @@ Projeto criado com o entuito de concluir um desafio de um processo seletivo, par
 
 ## Estrutura
 
-Front-end: Angular 6.0.3, Bootstrap 4.0.0 e BoostrapIcons, HTML, Typescript, CSS.
+Front-end: Angular 6.0.3, Node 8.9.0, Bootstrap 4.0.0 e BoostrapIcons, HTML, Typescript, CSS.
 
 Back-end: Java e SpringBoot, JPA, Hibernate, Maven, utilização API REST.
 
 Arquitetura: MVC.
 
-Banco de dados: PostgreSQL.
+Banco de dados: PostgreSQL (para subir localmente, será necessário a criação de um novo banco de dados, e especificar no arquivo application.yml - alterando a url, usário e senha).
 
 ## Como executar
 
