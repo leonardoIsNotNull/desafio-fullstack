@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,11 +19,14 @@ import java.util.Objects;
 public class Fornecedor implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cnpj",  nullable = true, unique = true)
+    @Column(name = "cnpj", nullable = true, unique = true)
     private String cnpj;
+
+    @Column(name = "cpf", nullable = true, unique = true)
+    private String cpf;
 
     @Column(name = "cep")
     private String cep;
@@ -33,12 +37,19 @@ public class Fornecedor implements Serializable{
     @Column(name = "nome")
     private String nome;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_pessoa_fisica", referencedColumnName = "id")
-    private PessoaFisica pessoaFisica;
+    @Column(name = "rg")
+    private String rg;
+
+    @Column(name = "data_nascimento")
+    private Date dataNascimento;
 
     //... Mapeamento bidimensional ManytoMany ...
-    @ManyToMany(mappedBy = "fornecedores")
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "empresa_fornecedor",
+            joinColumns = @JoinColumn(name = "empresa_id"),
+            inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
+    )
     @JsonIgnoreProperties("fornecedores")
     private List<Empresa> empresas = new ArrayList<>();
 

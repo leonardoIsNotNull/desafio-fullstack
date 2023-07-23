@@ -17,6 +17,8 @@ public class EmpresaService implements Serializable {
     @Autowired
     private final EmpresaRepository empresaRepository;
 
+    private final ForncedorService forncedorService;
+
     public List<Empresa> obterTodasEmpresas(){
         return empresaRepository.findAll();
     }
@@ -26,6 +28,10 @@ public class EmpresaService implements Serializable {
     }
 
     public Optional<Empresa> criarAtualizarEmpresa(Empresa empresa){
+        empresa.getFornecedores().forEach(fornecedor -> {
+            fornecedor.getEmpresas().add(empresa);
+            forncedorService.criarAtualizarForncedor(fornecedor);
+        });
         return Optional.of(empresaRepository.save(empresa));
     }
 

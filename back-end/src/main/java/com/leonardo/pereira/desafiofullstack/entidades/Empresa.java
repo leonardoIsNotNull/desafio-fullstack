@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,7 +17,7 @@ import java.util.Objects;
 @Table(name = "empresa")
 public class Empresa implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "cnpj", unique = true)
@@ -29,14 +30,9 @@ public class Empresa implements Serializable {
     private String cep;
 
     //... Mapeamento ManytoMany ...
-    @ManyToMany
-    @JoinTable(
-            name = "empresa_fornecedor",
-            joinColumns = @JoinColumn(name = "empresa_id"),
-            inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
-    )
+    @ManyToMany(mappedBy = "empresas", cascade = CascadeType.MERGE)
     @JsonIgnoreProperties("empresas")
-    private List<Fornecedor> fornecedores;
+    private List<Fornecedor> fornecedores = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
