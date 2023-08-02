@@ -1,5 +1,5 @@
 # Projeto Desafio Full-Stack
-Projeto criado com o entuito de concluir um desafio de um processo seletivo, para a vavga de desevolvedor full-stack.
+Projeto criado com o entuito de concluir um desafio de um processo seletivo, para a vaga de desevolvedor full-stack.
 
 ## Estrutura
 
@@ -9,7 +9,7 @@ Back-end: Java e SpringBoot, JPA, Hibernate, Maven, utilização API REST.
 
 Arquitetura: MVC.
 
-Banco de dados: PostgreSQL (para subir localmente, será necessário a criação de um novo banco de dados, e especificar no arquivo application.yml - alterando a url, usário e senha).
+Banco de dados: PostgreSQL (para subir localmente, será necessário a criação de um novo banco de dados, e especificar no arquivo application.yml - alterando a url, usuário e senha).
 
 ## Como executar
 
